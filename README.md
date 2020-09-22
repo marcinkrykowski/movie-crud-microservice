@@ -17,7 +17,7 @@ Example microservice written in Scala using some modern FP libraries.
 * [Database](#database)
 * [Academic discussion over some choices](#academic-discussion-over-some-choices)
     *  [Why I used tier architecture?](#why-i-used-tier-architecture)  
-    *  [ Why I used http4s (library) over for example Play (framework)](#why-i-used-http4s-library-over-for-example-play-framework)  
+    *  [ Why I used http4s (library) over for example Play (framework)?](#why-i-used-http4s-library-over-for-example-play-framework)  
 * [Possible improvements](#possible-improvements)
 
 ## Use case
@@ -64,7 +64,7 @@ All the configuration is stored in `application.conf`. By default, it listens to
 You can run the microservice with `sbt run` or by importing that project into your IDE and starting it from there.
 
 ## Tests
-Unit tests are using mocks, while integration tests are using real HTTP client to make requests.
+For testing purposes I use ScalaTest. Unit tests are using mocks, while integration tests are using real HTTP client to make requests.
 To run unit tests do `sbt test`. To run integration tests `sbt it:test`.
 
 ## Libraries
@@ -111,5 +111,6 @@ Might have used [tapir](https://github.com/softwaremill/tapir), [typedApi](https
 - [ ] Add continuous integration
 - [ ] Dockerize the application
 - [ ] Add logging mechanism
+- [ ] Add property based testing
 
 
