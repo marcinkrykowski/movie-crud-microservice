@@ -18,8 +18,19 @@ class MovieServiceSpec extends AnyWordSpec with MockFactory with Matchers {
   private val repository = stub[MovieRepository]
 
   private val service = new MovieService(repository).routes
+  private val serviceWithWrongExternalUrl =
+    new MovieService(repository, "https://ghibliapi.herokuapp.pl/films").routes
 
   "MovieService" should {
+    "return error from external api" in {
+      val response = serviceWithWrongExternalUrl
+        .orNotFound(Request[IO](GET, Uri.unsafeFromString(s"/allMovies")))
+        .unsafeRunSync()
+      response.status shouldBe Status.InternalServerError
+      response.as[String].unsafeRunSync() should contain
+      println(response.body.toString())
+      """  Problem with External API. """
+    }
     "return list of movies from external api" in {
       val response =
         serve(Request[IO](GET, Uri.unsafeFromString(s"/allMovies")))

@@ -1,6 +1,8 @@
 # Movie rating system
 Example microservice written in Scala using some modern FP libraries.
 
+*Disclaimer: This project serves as piece of my code. In production code there would be quite a few changes.*
+
 #### Table of Contents  
 * [Use case](#use-case)  
 * [Endpoints](#endpoints)
@@ -108,5 +110,6 @@ Might have used [tapir](https://github.com/softwaremill/tapir), [typedApi](https
 - [ ] Add SQL syntax checks
 - [ ] Add continuous integration
 - [ ] Dockerize the application
+- [ ] Add logging mechanism
 
 
