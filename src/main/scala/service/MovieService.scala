@@ -23,7 +23,6 @@ class MovieService(
     Decoder.decodeString.map[Rate](Rate.unsafeFromString)
 
   private val apiService = new ExternalApiService(externalApi)
-//  private val moviesFromApi: String = apiService.movies
 
   val routes = HttpRoutes.of[IO] {
     case GET -> Root / "allMovies" =>
