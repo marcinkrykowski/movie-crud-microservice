@@ -28,7 +28,6 @@ class MovieServiceSpec extends AnyWordSpec with MockFactory with Matchers {
         .unsafeRunSync()
       response.status shouldBe Status.InternalServerError
       response.as[String].unsafeRunSync() should contain
-      println(response.body.toString())
       """  Problem with External API. """
     }
     "return list of movies from external api" in {
